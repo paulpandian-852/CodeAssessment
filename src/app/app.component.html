@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center" class="container-fluid">
+  <h1>
+    Welcome to {{title}}!
+    <button class="btn btn-primary" (click)="autoPopulateFavorites()">Auto Populate Favorites</button>
+    <button class="btn btn-primary" (click)="timeAddFavorites()">Auto Populate Every 5 seconds</button>
+  </h1>
+  <table class="table table-sm table-striped">
+    <thead>
+      <tr>
+        <th>Selector for Favorites</th>
+        <th>List of Jokes</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let j of jokes">
+        <td><input type="checkbox" (click)="checkBoxClick(j.joke)
+          "></td>
+        <td>{{j.joke}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h1>Favorite Jokes
+    <button class="btn btn-primary" (click)="removePopulateFavorites()">Remove Populated Favorites</button>
+    <button class="btn btn-primary" (click)="stopAutoPopulate()">Pause Interval Population</button>
+  </h1> 
+
+  <table class="table table-md table-striped">
+    <thead>
+      <tr>
+        <th>Selector to remove Favorites</th>
+        <th>List of Selected Jokes</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let j of jokesSelected">
+        <td><input type="checkbox" (click)="removeFromFavorites(j)"></td>
+        <td>{{j}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
